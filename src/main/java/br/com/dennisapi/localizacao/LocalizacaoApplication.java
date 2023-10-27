@@ -1,33 +1,23 @@
 package br.com.dennisapi.localizacao;
 
 import br.com.dennisapi.localizacao.domain.entity.Cidade;
-import br.com.dennisapi.localizacao.domain.repository.CidadeRepository;
+import br.com.dennisapi.localizacao.service.CidadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootApplication
 public class LocalizacaoApplication implements CommandLineRunner {
 
     @Autowired
-    private CidadeRepository cidadeRepository;
+    private CidadeService service;
 
     @Override
     public void run(String... args) throws Exception {
-        salvarCidade();
-        listarCidade();
-    }
+        //var cidade = new Cidade(null, "Porto Alegre",null);
 
-    @Transactional
-    void salvarCidade() {
-        var cidade = new Cidade(1, "Porto Alegre", 200000);
-        cidadeRepository.save(cidade);
-    }
-
-    void listarCidade() {
-        cidadeRepository.findAll().forEach(System.out::println);
+        service.listarCidadesPorNomeSQL();
     }
 
     public static void main(String[] args) {

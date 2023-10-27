@@ -1,0 +1,25 @@
+#
+## Configuração do banco de dados H2
+#spring.datasource.url=jdbc:h2:mem:testdb
+#spring.datasource.driverClassName=org.h2.Driver
+#spring.datasource.username=sa
+#spring.datasource.password=password
+#
+#spring.jpa.show_sql = true
+#spring.jpa.properties.hibernate.fomart_sql =true
+#spring.jpa.hibernate.ddl-auto= none
+#
+## Configuração do console do H2 (opcional)
+#spring.h2.console.enabled=true
+#spring.h2.console.path=/h2-console
+#
+#
+
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
